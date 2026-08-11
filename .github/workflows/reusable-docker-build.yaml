@@ -132,6 +132,10 @@ jobs:
       image-tag: ${{ steps.image-tag.outputs.image-tag }}
 
     steps:
+      # Checkout reposity to have access to our Dockerfile
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       # we need qemu and buildx so we can build multiple platforms later
       - name: Set up QEMU
         id: qemu
