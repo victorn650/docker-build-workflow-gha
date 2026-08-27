@@ -141,6 +141,12 @@ jobs:
         id: qemu
         uses: docker/setup-qemu-action@ce360397dd3f832beb865e1373c09c0e9f86d70a #v4.0.0
 
+      - name: Debug files
+        run: |
+          pwd
+          echo "Files in workspace:"
+          find . -maxdepth 3 -type f | sort
+
         # BuildKit (used with `docker buildx`) is the best way to build images
       - name: Set up Docker Buildx
         id: buildx
